@@ -20,6 +20,8 @@
     App info must have been previously set using Set-MimecastAppInfo.
 #>
 function Get-MimecastAppInfo {
+    [CmdletBinding()]
+    [Alias("Get-mcAppInfo")]
     $Path = "$ENV:APPDATA\PSMimecast\AppInfo.xml"
     if (Test-Path -Path $Path){
         $AppInfo = Import-Clixml -Path $Path

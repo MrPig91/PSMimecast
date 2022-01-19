@@ -17,19 +17,20 @@ function Get-MimecastBaseURL {
         $requestId = [guid]::NewGuid().guid
 
         #Create Headers
-        $headers = @{"x-mc-date" = $hdrDate; 
-        "x-mc-app-id" = $Appid;
-        "x-mc-req-id" = $requestId;
-        "Content-Type" = "application/json"}
+        $headers = @{
+            "x-mc-date" = $hdrDate; 
+            "x-mc-app-id" = $Appid;
+            "x-mc-req-id" = $requestId;
+            "Content-Type" = "application/json"
+        }
 
         #Create post body
-        $postBody = "{
-        ""data"": [
-            {
-                ""emailAddress"": $UserPrincipalName
-            }
-        ]
-        }"
+        $postBody = @{
+            data = @(@{
+                emailAddress = $UserPrincipalName
+            })
+        }
+        $postBody = $postBody | ConvertTo-Json
         #Send Request
         $response = Invoke-RestMethod -Method Post -Headers $headers -Body $postBody -Uri $url
         #Print the response

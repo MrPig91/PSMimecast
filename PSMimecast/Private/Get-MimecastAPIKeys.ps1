@@ -6,6 +6,7 @@ function Get-MimecastAPIKeys {
             AccessKey = [pscredential]::new("API",(ConvertTo-SecureString -String $SecretObject.AccessKey)).GetNetworkCredential().Password
             SecretKey = [pscredential]::new("API",(ConvertTo-SecureString -String $SecretObject.SecretKey)).GetNetworkCredential().Password
             EmailAddress = $SecretObject.EmailAddress
+            AuthType = $SecretObject.AuthType
         }
     }
     else{

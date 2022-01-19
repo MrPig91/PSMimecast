@@ -20,11 +20,13 @@ function New-MimecastHeader{
     $sig = [Convert]::ToBase64String($sig)
         
     #Create Headers
-    $headers = @{"Authorization" = "MC " + $accessKey + ":" + $sig;
-                    "x-mc-date" = $hdrDate;
-                    "x-mc-app-id" = $appId;
-                    "x-mc-req-id" = $requestId;
-                    "Content-Type" = "application/json"}
+    $headers = @{
+        "Authorization" = "MC $($accessKey): $sig"
+        "x-mc-date" = $hdrDate
+        "x-mc-app-id" = $appId
+        "x-mc-req-id" = $requestId
+        "Content-Type" = "application/json"
+    }
     
     $headers
 }

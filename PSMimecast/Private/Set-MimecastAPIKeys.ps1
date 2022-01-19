@@ -5,7 +5,8 @@ function Set-MimecastAPIKeys{
         $AccessKey,
         [Parameter(Mandatory)]
         $SecretKey,
-        $EmailAddress
+        $EmailAddress,
+        $AuthType
     )
 
     Begin{
@@ -26,6 +27,7 @@ function Set-MimecastAPIKeys{
             AccessKey = $EncryptedAccessKey
             SecretKey = $EncryptedSecureKey
             EmailAddress = $EmailAddress
+            AuthType = $AuthType
         }
 
         $SecretObject | Export-Clixml -Path $Path\Keys.xml -Force

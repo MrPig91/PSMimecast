@@ -2,9 +2,9 @@
 <Configuration>
   <ViewDefinitions>
     <View>
-      <Name>Mimecast.ReleaseMessage</Name>
+      <Name>PSMimecast.ReleaseMessage</Name>
       <ViewSelectedBy>
-        <TypeName>Mimecast.ReleaseMessage</TypeName>
+        <TypeName>PSMimecast.ReleaseMessage</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -30,15 +30,15 @@
       </TableControl>
     </View>
     <View>
-      <Name>Mimecast.HeldMessage</Name>
+      <Name>PSMimecast.HeldMessage</Name>
       <ViewSelectedBy>
-        <TypeName>Mimecast.HeldMessage</TypeName>
+        <TypeName>PSMimecast.HeldMessage</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
             <TableColumnHeader>
                 <Label>From</Label>
-                <Width>20</Width>
+                <Width>30</Width>
             </TableColumnHeader>
             <TableColumnHeader>
                 <Label>To</Label>
@@ -46,7 +46,7 @@
             </TableColumnHeader>
             <TableColumnHeader>
                 <Label>subject</Label>
-                <Width>25</Width>
+                <Width>40</Width>
             </TableColumnHeader>
             <TableColumnHeader>
                 <Label>route</Label>
@@ -55,6 +55,14 @@
             <TableColumnHeader>
                 <Label>Held Reason</Label>
                 <Width>25</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>HasAttachments</Label>
+                <Width>16</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>DateReceived</Label>
+                <Width>30</Width>
             </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
@@ -78,6 +86,12 @@
               </TableColumnItem>
               <TableColumnItem>
                 <PropertyName>policyInfo</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>hasAttachments</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>dateReceived</PropertyName>
               </TableColumnItem>   
             </TableColumnItems>
           </TableRowEntry>

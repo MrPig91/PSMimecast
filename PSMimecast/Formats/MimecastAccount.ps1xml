@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>PSMimecast.Account</Name>
+      <ViewSelectedBy>
+        <TypeName>PSMimecast.Account</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>        
+            <TableColumnHeader>
+                <Label>Name</Label>
+            </TableColumnHeader>                
+            <TableColumnHeader>
+                <Label>EmailAddress</Label>
+            </TableColumnHeader>          
+            <TableColumnHeader>
+                <Label>accountLocked</Label>
+                <Alignment>Center</Alignment>
+            </TableColumnHeader>   
+            <TableColumnHeader>
+                <Label>AccountDisabled</Label>
+                <Alignment>Center</Alignment>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>AllowSmtp</Label>
+                <Alignment>Center</Alignment>
+            </TableColumnHeader> 
+            <TableColumnHeader>
+                <Label>AllowPop</Label>
+                <Alignment>Center</Alignment>
+            </TableColumnHeader> 
+            <TableColumnHeader>
+                <Label>PasswordNeverExpires</Label>
+                <Alignment>Center</Alignment>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>ForcePasswordChange</Label>
+                <Alignment>Center</Alignment>
+            </TableColumnHeader>                                                    
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>name</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>emailAddress</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>
+                  $Esc = [char]27
+                  $color = switch ($_.accountLocked){
+                      "False" {"92"}
+                      "True" {"91"}
+                      default {"92"}
+                  }
+                  "$($Esc)[$($color)m$($_.accountLocked)$($Esc)[39m"
+                </ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>accountDisabled</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>allowSmtp</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>allowPop</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>passwordNeverExpires</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>forcePasswordChange</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>

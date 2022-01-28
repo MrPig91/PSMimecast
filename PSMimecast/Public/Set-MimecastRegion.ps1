@@ -1,4 +1,5 @@
 function Set-MimecastRegion {
+    [Alias("Set-mcRegion")]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]

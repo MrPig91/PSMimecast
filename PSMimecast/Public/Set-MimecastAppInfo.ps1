@@ -30,12 +30,14 @@ function Set-MimecastAppInfo {
         [string]$AppKey
     )
 
-    $Path = "$ENV:APPDATA\PSMimecast\Keys.xml"
+    $Path = "$ENV:APPDATA\PSMimecast"
     if (!(Test-Path -Path $Path)){
-        $AppInfo = [PSCustomObject]@{
-            AppId = $AppId
-            AppKey = (ConvertTo-SecureString $AppKey -AsPlainText -Force | ConvertFrom-SecureString)
-        }
-        $AppInfo | Export-Clixml -Path $Path
-    } #if
+        New-Item -Path $Path -ItemType Directory -Force | Out-Null
+    }
+
+    $AppInfo = [PSCustomObject]@{
+        AppId = $AppId
+        AppKey = (ConvertTo-SecureString $AppKey -AsPlainText -Force | ConvertFrom-SecureString)
+    }
+    $AppInfo | Export-Clixml -Path "$Path\AppInfo.xml" -Force
 }

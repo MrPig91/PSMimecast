@@ -24,7 +24,7 @@ function Get-MimecastHeldMessageSummary {
     [Alias("Get-mcHeldMessageSummary")]
     param()
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/gateway/get-hold-summary-list"
         $url = $baseUrl + $apiCall
     }

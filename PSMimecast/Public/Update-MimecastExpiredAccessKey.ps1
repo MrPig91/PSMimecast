@@ -27,7 +27,7 @@ function Update-MimecastExpiredAccessKey {
         [SecureString]$Password
     )
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/login/login"
         $url = $baseUrl + $apiCall
 

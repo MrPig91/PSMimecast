@@ -28,14 +28,19 @@ function New-MimecastAPIKeys {
         [Parameter(Mandatory)]
         [pscredential]$Credentials,
         [ValidateSet("Basic-Cloud","Basic-Ad")]
-        $AuthType = "Basic-Cloud"
+        $AuthType = "Basic-Cloud",
+
+        [Parameter(Mandatory)]
+        [ValidateSet("eu","de","us","ca","za","au","je")]
+        [string]$Region
     )
 
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        Set-MimecastRegion -Region $Region
+        
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/login/login"
         $url = $baseUrl + $apiCall
-
         #Generate request header values
         $hdrDate = (Get-Date).ToUniversalTime().ToString("ddd, dd MMM yyyy HH:mm:ss UTC") 
         $requestId = [guid]::NewGuid().guid

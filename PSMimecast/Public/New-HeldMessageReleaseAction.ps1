@@ -33,7 +33,7 @@ function New-HeldMessageReleaseAction{
     )
 
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/gateway/hold-release"
         $url = $baseUrl + $apiCall
     }

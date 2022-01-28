@@ -30,6 +30,6 @@ function Set-MimecastAPIKeys{
             AuthType = $AuthType
         }
 
-        $SecretObject | Export-Clixml -Path $Path\Keys.xml -Force
+        $SecretObject | Export-Clixml -Path "$Path\Keys.xml" -Force
     } #Process
 }

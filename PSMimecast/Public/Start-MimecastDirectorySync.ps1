@@ -24,7 +24,7 @@ function Start-MimecastDirectorySync{
     [Alias("Start-mcDirectorySync")]
     param()
     Begin{   	
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/directory/execute-sync"
         $url = $baseUrl + $apiCall
     }

@@ -43,7 +43,7 @@ function Get-MimecastProfile {
     )
 
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/user/get-profile"
         $url = $baseUrl + $apiCall
     }

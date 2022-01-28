@@ -65,7 +65,7 @@ function Get-MimecastHeldMessage {
     )
 
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/gateway/get-hold-message-list"
         $url = $baseUrl + $apiCall
 

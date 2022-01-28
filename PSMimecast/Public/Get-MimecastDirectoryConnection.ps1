@@ -32,7 +32,7 @@ function Get-MimecastDirectoryConnection{
     [Alias("Get-mcDirectoryConnection")]
     param()
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/directory/get-connection"
         $url = $baseUrl + $apiCall
     }

@@ -49,7 +49,7 @@ function New-HeldMessageRejectAction{
     )
 
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $apiCall = "/api/gateway/hold-reject"
         $url = $baseUrl + $apiCall
         $SkipParamerters = @("MessageId")

@@ -34,7 +34,7 @@ function Lock-MimecastAccount{
     )
 
     Begin{
-        $baseUrl = "https://us-api.mimecast.com"
+        $baseUrl = Get-mcBaseURL
         $uri = "/api/user/update-user"
         $url = $baseUrl + $uri
     }

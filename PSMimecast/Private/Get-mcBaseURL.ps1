@@ -3,7 +3,7 @@ function Get-mcBaseURL {
     param()
 
     try{
-        $region = Get-MimecastRegion
+        $region = (Get-MimecastRegion).Region
         return "https://$region-api.mimecast.com"
     }
     catch{
